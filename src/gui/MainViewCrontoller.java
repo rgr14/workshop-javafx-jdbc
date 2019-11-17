@@ -34,7 +34,7 @@ public class MainViewCrontoller implements Initializable{
 	
 	@FXML
 	public void onMenuItemDepartamentoAction() {
-		System.out.println("Menu Departamento Acionado");
+		loadView("/gui/DepartmentList.fxml");
 	}
 	
 	@FXML
