@@ -37,7 +37,7 @@ public class MainViewCrontoller implements Initializable {
 	@FXML
 	public void onMenuItemDepartamentoAction() {
 		loadView("/gui/DepartmentList.fxml", (DepartamentoListController controller) -> {
-			controller.setDepartmentService(new DepartamentoServico());
+			controller.setDepartamentoServico(new DepartamentoServico());
 			controller.updateTableView();
 		});
 	}
