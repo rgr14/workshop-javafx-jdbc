@@ -14,7 +14,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
-import modelo.entidades.Departamento;
+import modelo.entidades.Department;
 import modelo.servicos.DepartamentoServico;
 
 
@@ -23,18 +23,18 @@ public class DepartamentoListController implements Initializable {
 	private DepartamentoServico service;
 	
 	@FXML
-	private TableView<Departamento> tableViewDepartment;
+	private TableView<Department> tableViewDepartment;
 
 	@FXML
-	private TableColumn<Departamento, Integer> tableColumnId;
+	private TableColumn<Department, Integer> tableColumnId;
 
 	@FXML
-	private TableColumn<Departamento, String> tableColumnName;
+	private TableColumn<Department, String> tableColumnName;
 
 	@FXML
 	private Button btNovo;
 	
-	private ObservableList<Departamento> obsList;
+	private ObservableList<Department> obsList;
 
 	@FXML
 	public void onBtNewAction() {
@@ -62,7 +62,7 @@ public class DepartamentoListController implements Initializable {
 		if (service == null) {
 			throw new IllegalStateException("Service was null");
 		}
-		List<Departamento> list = service.findAll();
+		List<Department> list = service.findAll();
 		obsList = FXCollections.observableArrayList(list);
 		tableViewDepartment.setItems(obsList);
 	}
