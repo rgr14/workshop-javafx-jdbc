@@ -17,6 +17,7 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 import modelo.servicos.DepartamentoServico;
+import modelo.servicos.SellerServico;
 
 public class MainViewCrontoller implements Initializable {
 
@@ -31,7 +32,10 @@ public class MainViewCrontoller implements Initializable {
 
 	@FXML
 	public void onMenuItemVendedorAction() {
-		System.out.println("Menu Vendedor Acionado");
+		loadView("/gui/SellerList.fxml", (SellerListController controller) -> {
+			controller.setSellerServico(new SellerServico());
+			controller.updateTableView();
+		});
 	}
 
 	@FXML
