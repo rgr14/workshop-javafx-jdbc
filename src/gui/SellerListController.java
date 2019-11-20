@@ -31,6 +31,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import modelo.entidades.Seller;
+import modelo.servicos.DepartamentoServico;
 import modelo.servicos.SellerServico;
 
 public class SellerListController implements Initializable, DataChangeListener {
@@ -113,7 +114,8 @@ public class SellerListController implements Initializable, DataChangeListener {
 
 			SellerFormController controller = loader.getController();
 			controller.setSeller(obj);
-			controller.setSellerServico(new SellerServico());
+			controller.setServices(new SellerServico(), new DepartamentoServico());
+			controller.loadAssociatedObjects();
 			controller.subscribeDataChangeListener(this);
 			controller.updateFormData();
 
@@ -187,6 +189,7 @@ public class SellerListController implements Initializable, DataChangeListener {
 				updateTableView();
 			}
 			catch (DbIntegrityException e) {
+				e.printStackTrace();
 				Alerts.showAlert("Error removing object", null, e.getMessage(), AlertType.ERROR);
 			}
 		}
